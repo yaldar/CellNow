@@ -1,4 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+/details.docx
+/cart.png
+/Home.png
+/.eslintcache
 
 # dependencies
 /node_modules
