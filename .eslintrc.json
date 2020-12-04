@@ -5,12 +5,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
   },
@@ -18,10 +13,7 @@
     "browser": true,
     "es2020": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb"
-  ],
+  "extends": ["plugin:react/recommended", "airbnb"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -30,16 +22,11 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint"
-  ],
+  "plugins": ["react", "@typescript-eslint", "only-warn"],
   "rules": {
     "no-use-before-define": "off",
     "no-unused-vars": "off",
-    "react/jsx-filename-extension": [
-      0
-    ],
+    "react/jsx-filename-extension": [0],
     "import/extensions": "off"
   }
 }

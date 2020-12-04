@@ -1,3 +1,7 @@
+/** @jsxImportSource @emotion/react */
+import {
+  jsx, css, Global, ClassNames,
+} from '@emotion/react';
 import React from 'react';
 import {
   BrowserRouter as Router, Switch, Route, Link,
@@ -5,6 +9,7 @@ import {
 import Header from './components/Header/Header';
 import CartPage from './Pages/CartPage';
 import HomePage from './Pages/HomePage';
+import './App.css';
 
 const App = () => (
   <div className="App">
