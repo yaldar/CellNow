@@ -11,6 +11,8 @@ import CartPage from './Pages/CartPage';
 import HomePage from './Pages/HomePage';
 import './App.css';
 
+import { mockProducts } from './data/index';
+
 const App = () => (
   <div className="App">
     <Header />
@@ -21,7 +23,7 @@ const App = () => (
             <CartPage />
           </Route>
           <Route exact path="/">
-            <HomePage />
+            <HomePage products={mockProducts} />
           </Route>
         </Switch>
       </Router>

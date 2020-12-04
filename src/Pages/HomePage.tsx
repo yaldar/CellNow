@@ -1,12 +1,17 @@
-import React from 'react';
 /** @jsxImportSource @emotion/react */
 import {
   jsx, css, Global, ClassNames,
 } from '@emotion/react';
+import React from 'react';
+import Banner from '../components/Banner/Banner';
+import ProductList from '../components/ProductList/ProductList';
+import { ProductType } from '../types';
 
-const HomePage = () => (
-  <div className="cart-page">
+const HomePage = ({ products }: { products: ProductType[] }) => (
+  <div className="cart-page" css={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
     <p>products Page</p>
+    <Banner />
+    <ProductList products={products} />
   </div>
 );
 
