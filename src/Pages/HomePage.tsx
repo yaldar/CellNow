@@ -3,8 +3,8 @@ import {
   jsx, css, Global, ClassNames,
 } from '@emotion/react';
 import React from 'react';
-import Banner from '../components/Banner/Banner';
-import ProductList from '../components/ProductList/ProductList';
+import Banner from '../components/Banner';
+import ProductList from '../components/ProductList';
 import { ProductType } from '../types';
 
 const HomePage = ({ products }: { products: ProductType[] }) => (

@@ -3,7 +3,7 @@ import {
   jsx, css, Global, ClassNames,
 } from '@emotion/react';
 import React from 'react';
-import logo from '../../assets/logo.png';
+import logo from '../assets/logo.png';
 import CartIcon from './CartIcon';
 import NavBar from './NavBar';
 

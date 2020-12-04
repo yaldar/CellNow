@@ -6,12 +6,12 @@ import React from 'react';
 import {
   BrowserRouter as Router, Switch, Route, Link,
 } from 'react-router-dom';
-import Header from './components/Header/Header';
+import Header from './components/Header';
 import CartPage from './Pages/CartPage';
 import HomePage from './Pages/HomePage';
 import './App.css';
 
-import { mockProducts } from './data/index';
+import { mockProducts } from './mockData/index';
 
 const App = () => (
   <div className="App">
