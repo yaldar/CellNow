@@ -2,7 +2,7 @@
 import {
   jsx, css, Global, ClassNames,
 } from '@emotion/react';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router, Switch, Route, Link,
 } from 'react-router-dom';
@@ -12,23 +12,30 @@ import HomePage from './Pages/HomePage';
 import './App.css';
 
 import { mockProducts } from './mockData/index';
+import ProductList from './components/ProductList';
 
-const App = () => (
-  <div className="App">
-    <Header />
-    <div className="body">
-      <Router>
-        <Switch>
-          <Route exact path="/cart">
-            <CartPage />
-          </Route>
-          <Route exact path="/">
-            <HomePage products={mockProducts} />
-          </Route>
-        </Switch>
-      </Router>
+const App = () => {
+  const [c, setC] = useState('');
+
+  return (
+    <div className="App">
+      <Header />
+      <div className="body">
+        <Router>
+          <Switch>
+            <Route exact path="/cart">
+              <CartPage c={c} />
+            </Route>
+            <Route exact path="/">
+              <HomePage>
+                <ProductList products={mockProducts} c={c} />
+              </HomePage>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default App;

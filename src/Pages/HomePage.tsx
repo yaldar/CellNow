@@ -2,16 +2,18 @@
 import {
   jsx, css, Global, ClassNames,
 } from '@emotion/react';
+import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import React from 'react';
 import Banner from '../components/Banner';
 import ProductList from '../components/ProductList';
 import { ProductType } from '../types';
+// { products }: { products: ProductType[] }
 
-const HomePage = ({ products }: { products: ProductType[] }) => (
+const HomePage = ({ children }: {children: EmotionJSX.Element}) => (
   <div className="cart-page" css={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
     <p>products Page</p>
     <Banner />
-    <ProductList products={products} />
+    {children}
   </div>
 );
 

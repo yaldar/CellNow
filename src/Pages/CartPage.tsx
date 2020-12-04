@@ -4,7 +4,7 @@ import {
   jsx, css, Global, ClassNames,
 } from '@emotion/react';
 
-const CartPage = () => (
+const CartPage = ({ c }: {c: string}) => (
   <div className="cart-page">
     <p>cart Page</p>
   </div>

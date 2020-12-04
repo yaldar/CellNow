@@ -5,11 +5,12 @@ import {
 import React from 'react';
 import logo from '../assets/logo.png';
 import CartIcon from './CartIcon';
+import Logo from './Logo';
 import NavBar from './NavBar';
 
 const Header = () => (
   <div className="header" css={{ display: 'flex', marginTop: '20px' }}>
-    <img src={logo} alt="logo" css={{ height: '100px' }} />
+    <Logo />
     <NavBar />
     <CartIcon />
   </div>
