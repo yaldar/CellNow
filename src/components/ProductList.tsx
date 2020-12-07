@@ -3,21 +3,21 @@ import {
   jsx, css, Global, ClassNames,
 } from '@emotion/react';
 import React from 'react';
-import { CartType, ProductType } from '../types/types';
+import { CartItemType, ProductType, CartSetter } from '../types/types';
 import Product from './Product';
 
 const ProductList = ({
   products,
-  c,
-  setC,
+  cart,
+  setCart,
 }: {
   products: ProductType[];
-  c: CartType;
-  setC: React.Dispatch<React.SetStateAction<CartType>>;
+  cart: CartItemType[] | [];
+  setCart: CartSetter;
 }) => (
   <div css={{ display: 'flex', flexWrap: 'wrap' }}>
     {products?.map((el) => (
-      <Product c={c} setC={setC} product={el} />
+      <Product cart={cart} setCart={setCart} product={el} />
     ))}
   </div>
 );

@@ -6,13 +6,9 @@ export type ProductType = {
   id: number;
 };
 
+export type CartItemType = {
+  prodcut: ProductType;
+  quantity: number;
+};
 
-// export type r = Array<{
-//   productId: number;
-//   quantity: number;
-// }> | null;
-
-type quantity = number;
-type CartType = {
-  [productId: number]: quantity
-} | null;
+export type CartSetter = React.Dispatch<React.SetStateAction<CartItemType[] | []>>;
