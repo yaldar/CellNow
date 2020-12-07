@@ -5,12 +5,14 @@ export const mockProducts = [
     desc: 'test',
     price: 'test',
     image: 'test',
+    id: 321,
   },
   {
     title: 'test',
     desc: 'test',
     price: 'test',
     image: 'test',
+    id: 312,
   },
 ];
 
