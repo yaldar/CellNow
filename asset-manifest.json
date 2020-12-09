@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/CellNow/static/css/main.07ae5204.chunk.css",
+    "main.js": "/CellNow/static/js/main.b69da392.chunk.js",
+    "main.js.map": "/CellNow/static/js/main.b69da392.chunk.js.map",
+    "runtime-main.js": "/CellNow/static/js/runtime-main.471833d4.js",
+    "runtime-main.js.map": "/CellNow/static/js/runtime-main.471833d4.js.map",
+    "static/js/2.9a54b62a.chunk.js": "/CellNow/static/js/2.9a54b62a.chunk.js",
+    "static/js/2.9a54b62a.chunk.js.map": "/CellNow/static/js/2.9a54b62a.chunk.js.map",
+    "static/js/3.58b6d239.chunk.js": "/CellNow/static/js/3.58b6d239.chunk.js",
+    "static/js/3.58b6d239.chunk.js.map": "/CellNow/static/js/3.58b6d239.chunk.js.map",
+    "index.html": "/CellNow/index.html",
+    "static/css/main.07ae5204.chunk.css.map": "/CellNow/static/css/main.07ae5204.chunk.css.map",
+    "static/js/2.9a54b62a.chunk.js.LICENSE.txt": "/CellNow/static/js/2.9a54b62a.chunk.js.LICENSE.txt",
+    "static/media/banner.6c07dfb7.png": "/CellNow/static/media/banner.6c07dfb7.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.471833d4.js",
+    "static/js/2.9a54b62a.chunk.js",
+    "static/css/main.07ae5204.chunk.css",
+    "static/js/main.b69da392.chunk.js"
+  ]
+}
