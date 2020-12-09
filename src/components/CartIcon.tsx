@@ -3,10 +3,10 @@ import { jsx, css, Global, ClassNames } from '@emotion/react';
 import React, { useEffect, useState } from 'react';
 
 import cartImage from '../assets/cart.png';
-import { CartItemType } from '../types/types';
+import { CartType } from '../types/types';
 import { fetchCart, getTotalItems } from '../utils';
 
-const CartIcon = ({ cart }: { cart: CartItemType[] | [] }) => {
+const CartIcon = ({ cart }: { cart: CartType }) => {
   const [count, setCount] = useState(getTotalItems(cart));
   useEffect(() => {
     setCount(getTotalItems(cart));
@@ -16,13 +16,14 @@ const CartIcon = ({ cart }: { cart: CartItemType[] | [] }) => {
     localStorage.clear();
   };
   return (
-    <a href="/cart">
-      <img src={cartImage} alt="cart" css={{ height: '100px', marginLeft: 'auto' }} />
-      {count > 0 && <p>{count}</p>}
-      <button type="button" onClick={clear}>
-        clear
-      </button>
-    </a>
+      <a href="/cart" css={{ height: '100%', marginLeft: 'auto' }}>
+        <img src={cartImage} alt="cart" css={{ height: '100%' }} />
+        {count > 0 && <p>{count}</p>}
+        <button type="button" onClick={clear}>
+          {/*TODO remove this */}
+          clear
+        </button>
+      </a>
   );
 };
 

@@ -4,14 +4,14 @@ export const mockProducts = [
     title: 'Product 1',
     desc: 'desc p1',
     price: '123.213',
-    image: 'link to image',
+    image: 'https://via.placeholder.com/150',
     id: 1,
   },
   {
     title: 'Product 2',
     desc: 'desc p2',
     price: '312',
-    image: 'link to 2nd img',
+    image: 'https://via.placeholder.com/150',
     id: 2,
   },
 ];

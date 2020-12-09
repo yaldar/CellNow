@@ -8,30 +8,31 @@ import HomePage from './Pages/HomePage';
 
 import { mockProducts } from './mockData/index';
 import ProductList from './components/ProductList';
-import { CartItemType } from './types/types';
+import { CartType } from './types/types';
 import { cssReset, fetchCart } from './utils';
 
 const App = () => {
-  const [cart, setCart] = useState<CartItemType[] | []>(fetchCart());
-
+  const [cart, setCart] = useState(fetchCart());
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
+
   return (
     <div className="App">
-      <Header cart={cart}/>
+      <Header cart={cart} />
       <div className="body">
         <Router>
           <Switch>
             <Route exact path="/cart">
-              <CartPage cart={cart} />
+              <CartPage cart={cart} setCart={setCart} />
             </Route>
             <Route exact path="/">
               <HomePage>
                 <ProductList products={mockProducts} cart={cart} setCart={setCart} />
               </HomePage>
             </Route>
+            {/*TODO <Route component={NotFound} /> */}
           </Switch>
         </Router>
       </div>

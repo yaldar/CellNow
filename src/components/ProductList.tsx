@@ -3,7 +3,7 @@ import {
   jsx, css, Global, ClassNames,
 } from '@emotion/react';
 import React from 'react';
-import { CartItemType, ProductType, CartSetter } from '../types/types';
+import { CartType, ProductType, CartSetter } from '../types/types';
 import Product from './Product';
 
 const ProductList = ({
@@ -12,7 +12,7 @@ const ProductList = ({
   setCart,
 }: {
   products: ProductType[];
-  cart: CartItemType[] | [];
+  cart: CartType;
   setCart: CartSetter;
 }) => (
   <div css={{ display: 'flex', flexWrap: 'wrap' }}>
