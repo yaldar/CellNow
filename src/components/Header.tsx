@@ -8,7 +8,10 @@ import Logo from './Logo';
 import NavBar from './NavBar';
 
 const Header = ({ cart }: { cart: CartItem[] }) => (
-  <div className="header" css={{ display: 'flex', marginTop: '20px', height: '50px', width:'100%' }}>
+  <div
+    className="header"
+    css={{ display: 'flex', height: '70px', width: '100%', backgroundColor: 'rgba(19, 180, 255, 0.74)' }}
+  >
     <Logo />
     <NavBar />
     <CartIcon cart={cart} />

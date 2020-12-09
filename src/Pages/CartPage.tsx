@@ -1,42 +1,30 @@
-import React, { useState } from 'react';
 /** @jsxImportSource @emotion/react */
-import { jsx, css, Global, ClassNames } from '@emotion/react';
+import React, { useState } from 'react';
+import { jsx, css, Global, ClassNames, Interpolation, Theme } from '@emotion/react';
 import { CartItem, CartSetter } from '../types/types';
-import { getProductFromId } from '../utils';
+import { calcTotal, getProductFromId, removeProduct, setQuantity, verticalCenterStyle } from '../utils';
+import ProductInCart from '../components/ProductInCart';
+import { Button } from '@material-ui/core';
 
-const CartPage = ({ cart, setCart }: { cart: CartItem[]; setCart: CartSetter }) => (
-  <div className="cart-page">
-    <p>cart Page</p>
-    <h1>
-      {cart.length === 0 ? (
-        <p> 'cart is empty yo'</p>
-      ) : (
-        cart.map((e) => {
-          const { product, quantity } = e;
-          const [newQuantity, setnewQuantity] = useState(quantity);
-          const id = product.id.toString();
-          const handleSubmit = (event: React.FormEvent) => {
-            event.preventDefault();
-            //  setCart()
-          };
-          const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            // if(valid()) setnewQuantity(parseInt(e.target.value));
-          };
-          return (
-            <div>
-              <p>{e.product.desc}</p>
-              <p>{e.quantity}</p>
-              <form onSubmit={handleSubmit}>
-                <label htmlFor={id}></label>
-                <input type="text" id={id} value={newQuantity} onChange={handleChange} />
-                <button formAction="sumbit">update</button>
-              </form>
-            </div>
-          );
-        })
-      )}
-    </h1>
-  </div>
-);
+const CartPage = ({ cart, setCart }: { cart: CartItem[]; setCart: CartSetter }) => {
+  return (
+    <div css={verticalCenterStyle}>
+      <h3>Your cart</h3>
+      <h3>
+        {cart.length === 0 ? (
+          <div css={verticalCenterStyle}>
+            <p> You have no items in your cart</p>
+            <Button href="/" color="secondary" variant="contained">
+              continue shopping
+            </Button>
+          </div>
+        ) : (
+          cart.map((e) => <ProductInCart cart={cart} e={e} setCart={setCart} />)
+        )}
+      </h3>
+
+    </div>
+  );
+};
 
 export default CartPage;

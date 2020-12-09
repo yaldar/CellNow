@@ -1,3 +1,5 @@
+import { Interpolation, Theme } from '@emotion/react';
+import { CloudUpload } from '@material-ui/icons';
 import { mockProducts } from '../mockData';
 import { CartItem, CartSetter, Product } from '../types/types';
 
@@ -12,20 +14,31 @@ const quantityAllowed = (quantity: number): boolean => true;
 //   if (cart.length === 0) return -1;
 //   // const f: CartType | undefined = cart.find()
 // };
-const inc = (cart: CartItem[], product: Product): CartItem[] => {
+const incrementQuantity = (cart: CartItem[], product: Product): CartItem[] => {
   return cart.map((ee) => {
     if (ee.product.id === product.id) {
       return { product: ee.product, quantity: ee.quantity + 1 };
     } else return ee;
   });
 };
-export const addToCart = (cart: CartItem[], setCart: CartSetter, product: Product) => {
+
+export const setQuantity = (cart: CartItem[], product: Product, newQuantity: number): CartItem[] => {
+  return cart.map((ee) => {
+    if (ee.product.id === product.id) {
+      return { product: ee.product, quantity: newQuantity };
+    } else return ee;
+  });
+};
+
+export const addProduct = (cart: CartItem[], product: Product) => {
   if (cart.some((el) => el.product.id === product.id)) {
-    setCart(inc(cart, product));
+    const newCart = incrementQuantity(cart, product);
+    return newCart;
   } else {
-    setCart([...cart, { product: product, quantity: 1 }]);
+    return [...cart, { product: product, quantity: 1 }];
   }
 };
+export const removeProduct = (cart: CartItem[], product: Product) => cart.filter((el) => el.product.id !== product.id);
 
 export const fetchAllproducts = () => mockProducts;
 
@@ -46,3 +59,13 @@ export const cssReset = {
     padding: 0,
   },
 };
+
+export const verticalCenterStyle: Interpolation<Theme> = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+};
+
+const priceToNum = (price: string) => parseInt(price);
+export const calcTotal = (cart: CartItem[]) =>
+  cart.reduce((acc, curr) => acc + curr.quantity * priceToNum(curr.product.price), 0);

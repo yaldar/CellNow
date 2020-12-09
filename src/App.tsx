@@ -10,6 +10,7 @@ import { mockProducts } from './mockData/index';
 import ProductList from './components/ProductList';
 import { CartItem } from './types/types';
 import { cssReset, fetchCart } from './utils';
+import NotFound from './Pages/NotFound';
 
 const App = () => {
   const [cart, setCart] = useState(fetchCart());
@@ -32,11 +33,10 @@ const App = () => {
                 <ProductList products={mockProducts} cart={cart} setCart={setCart} />
               </HomePage>
             </Route>
-            {/*TODO <Route component={NotFound} /> */}
+            TODO <Route component={NotFound} />
           </Switch>
         </Router>
       </div>
-      <Global styles={cssReset} />
     </div>
   );
 };

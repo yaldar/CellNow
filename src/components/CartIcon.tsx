@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 import cartImage from '../assets/cart.png';
 import { CartItem } from '../types/types';
 import { fetchCart, countItems } from '../utils';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { Button } from '@material-ui/core';
 
 const CartIcon = ({ cart }: { cart: CartItem[] }) => {
   const [count, setCount] = useState(countItems(cart));
@@ -16,14 +18,21 @@ const CartIcon = ({ cart }: { cart: CartItem[] }) => {
     localStorage.clear();
   };
   return (
-      <a href="/cart" css={{ height: '100%', marginLeft: 'auto' }}>
-        <img src={cartImage} alt="cart" css={{ height: '100%' }} />
-        {count > 0 && <p>{count}</p>}
-        <button type="button" onClick={clear}>
-          {/*TODO remove this */}
-          clear
-        </button>
-      </a>
+    <a
+      href="/cart"
+      css={{
+        marginLeft: 'auto',
+        marginRight: '20px',
+        display: 'flex',
+        alignContent: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        justifyItems: 'center',
+      }}
+    >
+      <ShoppingCartIcon />
+      {count > 0 && <p css={{ marginTop: '0', marginBottom: '0' }}>({count})</p>}
+    </a>
   );
 };
 
