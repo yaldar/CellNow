@@ -1,4 +1,4 @@
-export type ProductType = {
+export type Product = {
   title: string;
   desc: string;
   price: string;
@@ -6,11 +6,9 @@ export type ProductType = {
   id: number;
 };
 
-export type CartType =
-  | {
-      product: ProductType;
-      quantity: number;
-    }[]
-;
+export type CartItem = {
+  product: Product;
+  quantity: number;
+};
 
-export type CartSetter = React.Dispatch<React.SetStateAction<CartType>>;
+export type CartSetter = React.Dispatch<React.SetStateAction<CartItem[]>>;

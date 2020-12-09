@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { jsx, css, Global, ClassNames } from '@emotion/react';
 import React from 'react';
-import { CartSetter, CartType, ProductType } from '../types/types';
+import { CartSetter, CartItem, Product as ProductType } from '../types/types';
 import { addToCart } from '../utils';
 
-const Product = ({ product, cart, setCart }: { product: ProductType; cart: CartType; setCart: CartSetter }) => {
+const Product = ({ product, cart, setCart }: { product: ProductType; cart: CartItem[]; setCart: CartSetter }) => {
   return (
     <div css={{ display: 'flex', flexDirection: 'column', margin: '20px' }}>
       <p css={{ margin: '20px' }}>name: {product.title}</p>

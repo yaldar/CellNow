@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import { jsx, css, Global, ClassNames } from '@emotion/react';
-import { CartType, CartSetter } from '../types/types';
+import { CartItem, CartSetter } from '../types/types';
 import { getProductFromId } from '../utils';
 
-const CartPage = ({ cart, setCart }: { cart: CartType; setCart: CartSetter }) => (
+const CartPage = ({ cart, setCart }: { cart: CartItem[]; setCart: CartSetter }) => (
   <div className="cart-page">
     <p>cart Page</p>
     <h1>

@@ -3,13 +3,13 @@ import { jsx, css, Global, ClassNames } from '@emotion/react';
 import React, { useEffect, useState } from 'react';
 
 import cartImage from '../assets/cart.png';
-import { CartType } from '../types/types';
-import { fetchCart, getTotalItems } from '../utils';
+import { CartItem } from '../types/types';
+import { fetchCart, countItems } from '../utils';
 
-const CartIcon = ({ cart }: { cart: CartType }) => {
-  const [count, setCount] = useState(getTotalItems(cart));
+const CartIcon = ({ cart }: { cart: CartItem[] }) => {
+  const [count, setCount] = useState(countItems(cart));
   useEffect(() => {
-    setCount(getTotalItems(cart));
+    setCount(countItems(cart));
     console.log(cart);
   }, [cart]);
   const clear = () => {

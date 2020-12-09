@@ -8,7 +8,7 @@ import HomePage from './Pages/HomePage';
 
 import { mockProducts } from './mockData/index';
 import ProductList from './components/ProductList';
-import { CartType } from './types/types';
+import { CartItem } from './types/types';
 import { cssReset, fetchCart } from './utils';
 
 const App = () => {
