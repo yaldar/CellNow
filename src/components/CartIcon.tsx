@@ -19,7 +19,7 @@ const CartIcon = ({ cart }: { cart: CartItem[] }) => {
   };
   return (
     <a
-      href="/cart"
+      href="/CellNow/cart"
       css={{
         marginLeft: 'auto',
         marginRight: '20px',

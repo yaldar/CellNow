@@ -20,13 +20,13 @@ const NavBar = () => {
         alignContent: 'center',
       }}
     >
-      <a href="/" css={navLinkStyle}>
+      <a href="/CellNow/" css={navLinkStyle}>
         Nav link one
       </a>
-      <a href="/" css={navLinkStyle}>
+      <a href="/CellNow/" css={navLinkStyle}>
         Nav link two
       </a>
-      <a href="/" css={navLinkStyle}>
+      <a href="/CellNow/" css={navLinkStyle}>
         Nav link three
       </a>
     </nav>

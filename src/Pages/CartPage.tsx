@@ -14,7 +14,7 @@ const CartPage = ({ cart, setCart }: { cart: CartItem[]; setCart: CartSetter }) 
         {cart.length === 0 ? (
           <div css={verticalCenterStyle}>
             <p> You have no items in your cart</p>
-            <Button href="/" color="secondary" variant="contained">
+            <Button href="/CellNow/" color="secondary" variant="contained">
               continue shopping
             </Button>
           </div>
@@ -31,10 +31,10 @@ const CartPage = ({ cart, setCart }: { cart: CartItem[]; setCart: CartSetter }) 
               <p>
                 Your total is: {calcTotal(cart)} {currency}
               </p>
-              <Button href="/" color="secondary" variant="contained">
+              <Button href="/CellNow/" color="secondary" variant="contained">
                 continue shopping
               </Button>
-              <Button href="/checkout" color="primary" variant="contained">
+              <Button href="/CellNow/checkout" color="primary" variant="contained">
                 checkout
               </Button>
             </div>

@@ -8,7 +8,7 @@ function NotFound() {
   return (
     <div css={verticalCenterStyle}>
       <h1>Page not found or not implemented yet</h1>
-      <Button href="/" color="primary" variant="contained">
+      <Button href="/CellNow/" color="primary" variant="contained">
         Home
       </Button>
     </div>
