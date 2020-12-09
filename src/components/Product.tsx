@@ -3,7 +3,7 @@ import { jsx, css, Global, ClassNames, Theme, Interpolation } from '@emotion/rea
 import { Button } from '@material-ui/core';
 import React from 'react';
 import { CartSetter, CartItem, Product as ProductType } from '../types/types';
-import { addProduct } from '../utils';
+import { addProduct, currency } from '../utils';
 
 const Product = ({ product, cart, setCart }: { product: ProductType; cart: CartItem[]; setCart: CartSetter }) => {
   const addToCart = () => {
@@ -28,6 +28,7 @@ const Product = ({ product, cart, setCart }: { product: ProductType; cart: CartI
       <img src={product.image} alt={product.title} />
       <hr css={{ width: '100%' }} />
       <p>{product.desc}</p>
+      <p>{product.price} {currency}</p>
       <Button variant="contained" color="primary" onClick={addToCart}>
         add to cart
       </Button>

@@ -37,6 +37,7 @@ const App = () => {
           </Switch>
         </Router>
       </div>
+      <Global styles={cssReset} />
     </div>
   );
 };

@@ -15,8 +15,8 @@ to {
 `;
 
 const Banner = () => (
-  <div css={{ display: 'flex', marginTop:'10px', animation: `${fade} 500ms ease-in` }}>
-    <img src={bannerImage} alt="banner" css={{ width: '100%' }} />
+  <div css={{ display: 'flex', marginTop: '10px', animation: `${fade} 500ms ease-in` }}>
+    <img src={bannerImage} alt="banner" css={{ width: '100%', height:'25vw' }} />
     <h1
       css={{
         position: 'absolute',
@@ -24,6 +24,7 @@ const Banner = () => (
         transform: 'translate(-50%, -50%)',
         marginTop: '10vw',
         color: 'gray',
+        fontSize: '3.5vw',
       }}
     >
       Welcome to CellNow!

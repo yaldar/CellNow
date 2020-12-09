@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { jsx, css, Global, ClassNames, Interpolation, Theme } from '@emotion/react';
 import { CartItem, CartSetter } from '../types/types';
-import { calcTotal, getProductFromId, removeProduct, setQuantity, verticalCenterStyle } from '../utils';
+import { calcTotal, currency, getProductFromId, removeProduct, setQuantity, verticalCenterStyle } from '../utils';
 import ProductInCart from '../components/ProductInCart';
 import { Button } from '@material-ui/core';
 
@@ -19,10 +19,28 @@ const CartPage = ({ cart, setCart }: { cart: CartItem[]; setCart: CartSetter }) 
             </Button>
           </div>
         ) : (
-          cart.map((e) => <ProductInCart cart={cart} e={e} setCart={setCart} />)
+          <div>
+            {cart.map((e) => (
+              <ProductInCart cart={cart} e={e} setCart={setCart} />
+            ))}
+            <hr />
+
+            <div
+              css={[{ display: 'flex', flexDirection: 'column', paddingTop: '100px', justifyItems: 'space-between' }]}
+            >
+              <p>
+                Your total is: {calcTotal(cart)} {currency}
+              </p>
+              <Button href="/" color="secondary" variant="contained">
+                continue shopping
+              </Button>
+              <Button href="/checkout" color="primary" variant="contained">
+                checkout
+              </Button>
+            </div>
+          </div>
         )}
       </h3>
-
     </div>
   );
 };

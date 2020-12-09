@@ -1,14 +1,15 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { jsx, css, Global, ClassNames, Interpolation, Theme } from '@emotion/react';
-import { Button } from '@material-ui/core';
+import { Button, Input } from '@material-ui/core';
 import { CartItem, CartSetter, Product } from '../types/types';
-import { calcTotal, removeProduct, setQuantity, verticalCenterStyle } from '../utils';
+import { calcTotal, currency, removeProduct, setQuantity, verticalCenterStyle } from '../utils';
+import { Label } from '@material-ui/icons';
 
 const ProductInCart = ({ e, setCart, cart }: { e: CartItem; setCart: CartSetter; cart: CartItem[] }) => {
   const { product, quantity } = e;
   const valid = (val: string) => true;
-  const [newQuantity, setNewQuantity] = useState('');
+  const [newQuantity, setNewQuantity] = useState(quantity.toString());
   const stringId = product.id.toString();
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -23,28 +24,29 @@ const ProductInCart = ({ e, setCart, cart }: { e: CartItem; setCart: CartSetter;
     setCart(removeProduct(cart, product));
     console.log(cart);
   };
+  const r = useRef<HTMLFormElement>(null);
+  const sumbit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    r.current?.requestSubmit();
+  };
   return (
-    <div key={stringId}>
-      <p>
-        {e.product.title} x{e.quantity}{' '}
-      </p>
-      <p>price: {e.quantity}</p>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor={stringId}></label>
-        <input type="number" id={stringId} value={newQuantity} onChange={handleChange} />
-        <button formAction="sumbit">update</button>
-      </form>
-      <button onClick={remove}>remove</button>
-      <hr />
-      <p>Your total is: ${calcTotal(cart)}</p>
-      <div css={verticalCenterStyle}>
-        <Button href="/" color="secondary" variant="contained">
-          continue shopping
-        </Button>
-        <Button href="/checkout" color="primary" variant="contained">
-          checkout
-        </Button>
+    <div key={stringId} css={{ display: 'flex', flexDirection: 'column' }}>
+      <div css={{ display: 'flex' }}>
+        <img src={e.product.image} alt="" />
+        <div css={{ marginLeft: '20px' }}>
+          <h3> {e.product.title}</h3>
+          <p>quantity: {e.quantity}</p>
+
+          <p>
+            price: {e.quantity} {currency}
+          </p>
+        </div>
       </div>
+      <form onSubmit={handleSubmit} ref={r}>
+        <input type="number" min="0" id={stringId} value={newQuantity} onChange={handleChange} />
+        <Button onClick={sumbit}>update quantity</Button>
+      </form>
+      <Button onClick={remove}>remove</Button>
     </div>
   );
 };

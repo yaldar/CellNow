@@ -54,7 +54,7 @@ export const countItems = (cart: CartItem[]) => {
 
 export const cssReset = {
   '*': {
-    border: '1px solid black',
+    // border: '1px solid black',
     margin: 0,
     padding: 0,
   },
@@ -69,3 +69,5 @@ export const verticalCenterStyle: Interpolation<Theme> = {
 const priceToNum = (price: string) => parseInt(price);
 export const calcTotal = (cart: CartItem[]) =>
   cart.reduce((acc, curr) => acc + curr.quantity * priceToNum(curr.product.price), 0);
+
+export const currency = 'SEK';
