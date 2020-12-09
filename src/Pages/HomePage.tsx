@@ -7,7 +7,7 @@ import Banner from '../components/Banner';
 
 const HomePage = ({ children }: { children: EmotionJSX.Element }) => (
   <div className="cart-page" css={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-    {/* <Banner /> */}
+    <Banner />
     {children}
   </div>
 );
