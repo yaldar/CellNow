@@ -4,4 +4,4 @@ CellNow shopping site
 
 
 
-Preview at `https://eloquent-newton-dcbb1a.netlify.app/`
+Deployed to Netlify. [Preview](https://eloquent-newton-dcbb1a.netlify.app/)**
