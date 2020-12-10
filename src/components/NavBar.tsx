@@ -15,18 +15,17 @@ const NavBar = () => {
   return (
     <nav
       css={{
-        marginLeft: 'auto',
         display: 'flex',
         alignContent: 'center',
       }}
     >
-      <a href="/CellNow/" css={navLinkStyle}>
+      <a href="/" css={navLinkStyle}>
         Nav link one
       </a>
-      <a href="/CellNow/" css={navLinkStyle}>
+      <a href="/" css={navLinkStyle}>
         Nav link two
       </a>
-      <a href="/CellNow/" css={navLinkStyle}>
+      <a href="/" css={navLinkStyle}>
         Nav link three
       </a>
     </nav>

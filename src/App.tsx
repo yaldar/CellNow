@@ -25,10 +25,10 @@ const App = () => {
       <div className="body">
         <Router>
           <Switch>
-            <Route exact path="/CellNow/cart">
+            <Route exact path="/cart">
               <CartPage cart={cart} setCart={setCart} />
             </Route>
-            <Route exact path="/CellNow/">
+            <Route exact path="/">
               <HomePage>
                 <ProductList products={mockProducts} cart={cart} setCart={setCart} />
               </HomePage>

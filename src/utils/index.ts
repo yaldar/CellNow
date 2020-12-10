@@ -71,3 +71,12 @@ export const calcTotal = (cart: CartItem[]) =>
   cart.reduce((acc, curr) => acc + curr.quantity * priceToNum(curr.product.price), 0);
 
 export const currency = 'SEK';
+
+export const navIconStyle = {
+  marginRight: '20px',
+  display: 'flex',
+  alignContent: 'center',
+  justifyContent: 'center',
+  alignItems: 'center',
+  justifyItems: 'center',
+};

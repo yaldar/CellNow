@@ -4,10 +4,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import React, { useEffect, useRef, useState } from 'react';
 import logo from '../assets/logo.png';
 import { CartItem } from '../types/types';
+import { navIconStyle } from '../utils';
 import CartIcon from './CartIcon';
 import Logo from './Logo';
 import NavBar from './NavBar';
-import './t.css';
 
 const Header = ({ cart }: { cart: CartItem[] }) => {
   const [expanded, setExpanded] = useState(false);
@@ -31,19 +31,15 @@ const Header = ({ cart }: { cart: CartItem[] }) => {
     };
   }, []);
 
+  const style = {
+    display: 'flex',
+    height: '70px',
+    width: '100%',
+    backgroundColor: 'rgba(19, 180, 255, 0.74)',
+  };
   return (
-    <div
-      className={`header ${expanded ? 'expanded' : ''}`}
-      id="navbar"
-      css={{
-        display: 'flex',
-        flexDirection: `${expanded ? 'column' : 'row'}` as 'row' | 'column',
-        height: '70px',
-        width: '100%',
-        backgroundColor: 'rgba(19, 180, 255, 0.74)',
-      }}
-    >
-      <MenuIcon className="icon" onClick={toggleExpanded} ref={r} />
+    <div id="navbar" css={style}>
+      <MenuIcon className="icon" onClick={toggleExpanded} ref={r} css={navIconStyle} />
       <Logo />
       <NavBar />
       <CartIcon cart={cart} />
