@@ -1,6 +1,15 @@
 /** @jsxImportSource @emotion/react */
 import { jsx, css, Global, ClassNames, Theme, Interpolation } from '@emotion/react';
-import { Button } from '@material-ui/core';
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  makeStyles,
+  Typography,
+} from '@material-ui/core';
 import React from 'react';
 import { CartSetter, CartItem, Product as ProductType } from '../types/types';
 import { addProduct, currency } from '../utils';
@@ -13,26 +22,35 @@ const Product = ({ product, cart, setCart }: { product: ProductType; cart: CartI
     display: 'flex',
     flexDirection: 'column',
     margin: '20px',
-    paddingTop: '15px',
     paddingBottom: '15px',
     alignItems: 'center',
     width: '10vw',
     maxWidth: '600px',
-    minWidth: '200px',
-    border: 'gray 1px solid',
-    borderRadius: '8px',
+    minWidth: '300px',
   };
+
   return (
-    <div css={style}>
-      <h3 css={{ margin: '20px' }}>{product.title}</h3>
-      <img src={product.image} alt={product.title} />
-      <hr css={{ width: '100%' }} />
-      <p>{product.desc}</p>
-      <p>{product.price} {currency}</p>
-      <Button variant="contained" color="primary" onClick={addToCart}>
-        add to cart
-      </Button>
-    </div>
+    <Card css={style}>
+      <CardActionArea>
+        <CardMedia css={{ height: '180px' }} image={product.image} title={product.title} />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2" align="center">
+            {product.title}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p" align="center" css={{ height: '30px' }}>
+            {product.desc}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" align="center" css={{ height: '30px' }}>
+            {product.price} {currency}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button variant="contained" color="primary" onClick={addToCart}>
+          add to cart
+        </Button>
+      </CardActions>
+    </Card>
   );
 };
 export default Product;
