@@ -27,8 +27,8 @@ const CartPage = ({ cart, setCart }: { cart: CartItem[]; setCart: CartSetter }) 
           </div>
         ) : (
           <div>
-            {cart.map((e) => (
-              <ProductInCart cart={cart} e={e} setCart={setCart} />
+            {cart.map((cartItem) => (
+              <ProductInCart cart={cart} e={cartItem} setCart={setCart} />
             ))}
             <hr />
             <div

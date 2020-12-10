@@ -1,33 +1,28 @@
 import { Interpolation, Theme } from '@emotion/react';
-import { CloudUpload } from '@material-ui/icons';
 import { mockProducts } from '../mockData';
-import { CartItem, CartSetter, Product } from '../types/types';
+import { CartItem, Product } from '../types/types';
 
-// eslint-disable-next-line import/prefer-default-export
 export const fetchCart = (): CartItem[] => {
   const d = localStorage.getItem('cart');
   return d ? JSON.parse(d) : [];
 };
 
 const quantityAllowed = (quantity: number): boolean => true;
-// const findCartItem[] = (cart: CartType, product: ProductType) => {
-//   if (cart.length === 0) return -1;
-//   // const f: CartType | undefined = cart.find()
-// };
-const incrementQuantity = (cart: CartItem[], product: Product): CartItem[] => cart.map((ee) => {
-  if (ee.product.id === product.id) {
-    return { product: ee.product, quantity: ee.quantity + 1 };
-  } return ee;
+
+const incrementQuantity = (cart: CartItem[], product: Product): CartItem[] => cart.map((cartItem) => {
+  if (cartItem.product.id === product.id) {
+    return { product: cartItem.product, quantity: cartItem.quantity + 1 };
+  } return cartItem;
 });
 
-export const setQuantity = (cart: CartItem[], product: Product, newQuantity: number): CartItem[] => cart.map((ee) => {
-  if (ee.product.id === product.id) {
-    return { product: ee.product, quantity: newQuantity };
-  } return ee;
+export const setQuantity = (cart: CartItem[], product: Product, newQuantity: number): CartItem[] => cart.map((cartItem) => {
+  if (cartItem.product.id === product.id) {
+    return { product: cartItem.product, quantity: newQuantity };
+  } return cartItem;
 });
 
 export const addProduct = (cart: CartItem[], product: Product) => {
-  if (cart.some((el) => el.product.id === product.id)) {
+  if (cart.some((cartItem) => cartItem.product.id === product.id)) {
     const newCart = incrementQuantity(cart, product);
     return newCart;
   }
@@ -37,7 +32,7 @@ export const removeProduct = (cart: CartItem[], product: Product) => cart.filter
 
 export const fetchAllproducts = () => mockProducts;
 
-export const getProductFromId = (id: number) => fetchAllproducts().find((e) => e.id === id);
+export const getProductFromId = (id: number) => fetchAllproducts().find((el) => el.id === id);
 
 export const countItems = (cart: CartItem[]) => {
   let count = 0;
