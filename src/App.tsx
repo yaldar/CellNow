@@ -36,8 +36,6 @@ const App = () => {
                 <ProductList products={mockProducts} cart={cart} setCart={setCart} />
               </HomePage>
             </Route>
-            TODO
-            {' '}
             <Route component={NotFound} />
           </Switch>
         </Router>
