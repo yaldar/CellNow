@@ -14,29 +14,24 @@ const quantityAllowed = (quantity: number): boolean => true;
 //   if (cart.length === 0) return -1;
 //   // const f: CartType | undefined = cart.find()
 // };
-const incrementQuantity = (cart: CartItem[], product: Product): CartItem[] => {
-  return cart.map((ee) => {
-    if (ee.product.id === product.id) {
-      return { product: ee.product, quantity: ee.quantity + 1 };
-    } else return ee;
-  });
-};
+const incrementQuantity = (cart: CartItem[], product: Product): CartItem[] => cart.map((ee) => {
+  if (ee.product.id === product.id) {
+    return { product: ee.product, quantity: ee.quantity + 1 };
+  } return ee;
+});
 
-export const setQuantity = (cart: CartItem[], product: Product, newQuantity: number): CartItem[] => {
-  return cart.map((ee) => {
-    if (ee.product.id === product.id) {
-      return { product: ee.product, quantity: newQuantity };
-    } else return ee;
-  });
-};
+export const setQuantity = (cart: CartItem[], product: Product, newQuantity: number): CartItem[] => cart.map((ee) => {
+  if (ee.product.id === product.id) {
+    return { product: ee.product, quantity: newQuantity };
+  } return ee;
+});
 
 export const addProduct = (cart: CartItem[], product: Product) => {
   if (cart.some((el) => el.product.id === product.id)) {
     const newCart = incrementQuantity(cart, product);
     return newCart;
-  } else {
-    return [...cart, { product: product, quantity: 1 }];
   }
+  return [...cart, { product, quantity: 1 }];
 };
 export const removeProduct = (cart: CartItem[], product: Product) => cart.filter((el) => el.product.id !== product.id);
 
@@ -47,7 +42,7 @@ export const getProductFromId = (id: number) => fetchAllproducts().find((e) => e
 export const countItems = (cart: CartItem[]) => {
   let count = 0;
   cart.forEach((el) => {
-    count = count + el.quantity;
+    count += el.quantity;
   });
   return count;
 };
@@ -66,9 +61,8 @@ export const verticalCenterStyle: Interpolation<Theme> = {
   alignItems: 'center',
 };
 
-const priceToNum = (price: string) => parseInt(price);
-export const calcTotal = (cart: CartItem[]) =>
-  cart.reduce((acc, curr) => acc + curr.quantity * priceToNum(curr.product.price), 0);
+const priceToNum = (price: string) => parseInt(price, 10);
+export const calcTotal = (cart: CartItem[]) => cart.reduce((acc, curr) => acc + curr.quantity * priceToNum(curr.product.price), 0);
 
 export const currency = 'SEK';
 
@@ -79,4 +73,15 @@ export const navIconStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   justifyItems: 'center',
+};
+
+export const cardStyle: Interpolation<Theme> = {
+  display: 'flex',
+  flexDirection: 'column',
+  margin: '20px',
+  paddingBottom: '15px',
+  alignItems: 'center',
+  width: '10vw',
+  maxWidth: '600px',
+  minWidth: '300px',
 };

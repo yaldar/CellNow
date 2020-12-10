@@ -1,14 +1,17 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css, Global, ClassNames } from '@emotion/react';
+import {
+  jsx, css, Global, ClassNames,
+} from '@emotion/react';
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Switch, Route, Link,
+} from 'react-router-dom';
 import Header from './components/Header';
 import CartPage from './Pages/CartPage';
 import HomePage from './Pages/HomePage';
 
 import { mockProducts } from './mockData/index';
 import ProductList from './components/ProductList';
-import { CartItem } from './types/types';
 import { cssReset, fetchCart } from './utils';
 import NotFound from './Pages/NotFound';
 
@@ -33,7 +36,9 @@ const App = () => {
                 <ProductList products={mockProducts} cart={cart} setCart={setCart} />
               </HomePage>
             </Route>
-            TODO <Route component={NotFound} />
+            TODO
+            {' '}
+            <Route component={NotFound} />
           </Switch>
         </Router>
       </div>

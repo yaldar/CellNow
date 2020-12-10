@@ -1,5 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css, Global, ClassNames } from '@emotion/react';
+import {
+  jsx, css, Global, ClassNames,
+} from '@emotion/react';
+// eslint-disable-next-line import/no-unresolved
 import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 
 import React from 'react';

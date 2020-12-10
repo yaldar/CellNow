@@ -1,5 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css, Global, ClassNames } from '@emotion/react';
+import {
+  jsx, css, Global, ClassNames,
+} from '@emotion/react';
 import { Button } from '@material-ui/core';
 import React from 'react';
 import { verticalCenterStyle } from '../utils';

@@ -1,5 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css, Global, ClassNames, keyframes } from '@emotion/react';
+import {
+  jsx, css, Global, ClassNames, keyframes,
+} from '@emotion/react';
 import React from 'react';
 import bannerImage from '../assets/banner.png';
 
@@ -16,7 +18,7 @@ to {
 
 const Banner = () => (
   <div css={{ display: 'flex', marginTop: '10px', animation: `${fade} 500ms ease-in` }}>
-    <img src={bannerImage} alt="banner" css={{ width: '100%', height:'25vw' }} />
+    <img src={bannerImage} alt="banner" css={{ width: '100%', height: '25vw' }} />
     <h1
       css={{
         position: 'absolute',
@@ -33,11 +35,3 @@ const Banner = () => (
 );
 
 export default Banner;
-
-// const t = css
-//   .login-wrapper {
-//     backdrop-filter: blur(5px);
-//     animation: fadeInText 1s;
-//     background-color: var(--main-color);
-//     border-radius: 20px;
-//   }

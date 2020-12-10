@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Global } from '@emotion/react';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 import { cssReset } from './utils';
 
 ReactDOM.render(

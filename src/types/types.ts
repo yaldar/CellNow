@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 export type Product = {
   title: string;
   desc: string;

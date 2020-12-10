@@ -1,12 +1,19 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from 'react';
-import { jsx, css, Global, ClassNames, Interpolation, Theme } from '@emotion/react';
-import { CartItem, CartSetter } from '../types/types';
-import { calcTotal, currency, getProductFromId, removeProduct, setQuantity, verticalCenterStyle } from '../utils';
-import ProductInCart from '../components/ProductInCart';
+import {
+  jsx, css, Global, ClassNames, Interpolation, Theme,
+} from '@emotion/react';
 import { Button } from '@material-ui/core';
+import { CartItem, CartSetter } from '../types/types';
+import {
+  calcTotal, currency, getProductFromId, removeProduct, setQuantity, verticalCenterStyle,
+} from '../utils';
+import ProductInCart from '../components/ProductInCart';
 
 const CartPage = ({ cart, setCart }: { cart: CartItem[]; setCart: CartSetter }) => {
+  const buttonStyle: Interpolation<Theme> = {
+    marginBottom: '30px',
+  };
   return (
     <div css={verticalCenterStyle}>
       <h3>Your cart</h3>
@@ -24,17 +31,22 @@ const CartPage = ({ cart, setCart }: { cart: CartItem[]; setCart: CartSetter }) 
               <ProductInCart cart={cart} e={e} setCart={setCart} />
             ))}
             <hr />
-
             <div
-              css={[{ display: 'flex', flexDirection: 'column', paddingTop: '100px', justifyItems: 'space-between' }]}
+              css={[{
+                display: 'flex', flexDirection: 'column', paddingTop: '40px', justifyItems: 'space-between',
+              }]}
             >
               <p>
-                Your total is: {calcTotal(cart)} {currency}
+                Your total is:
+                {' '}
+                {calcTotal(cart)}
+                {' '}
+                {currency}
               </p>
-              <Button href="/" variant="outlined" color="primary">
+              <Button href="/" variant="outlined" color="primary" css={buttonStyle}>
                 continue shopping
               </Button>
-              <Button href="/checkout" color="primary" variant="contained">
+              <Button href="/checkout" color="primary" variant="contained" css={buttonStyle}>
                 checkout
               </Button>
             </div>

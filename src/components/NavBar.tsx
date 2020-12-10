@@ -1,5 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css, Global, ClassNames, Interpolation, Theme } from '@emotion/react';
+import {
+  jsx, css, Global, ClassNames, Interpolation, Theme,
+} from '@emotion/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -21,13 +23,13 @@ const NavBar = () => {
       }}
     >
       <Link to="/" css={navLinkStyle}>
-        Nav link one
+        Phones
       </Link>
       <Link to="/" css={navLinkStyle}>
-        Nav link two
+        Accessories
       </Link>
       <Link to="/" css={navLinkStyle}>
-        Nav link three
+        Cameras
       </Link>
     </nav>
   );

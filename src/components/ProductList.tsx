@@ -1,5 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css, Global, ClassNames } from '@emotion/react';
+import {
+  jsx, css, Global, ClassNames,
+} from '@emotion/react';
 import React from 'react';
 import { CartItem, Product as ProductType, CartSetter } from '../types/types';
 import Product from './Product';

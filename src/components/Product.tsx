@@ -1,5 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css, Global, ClassNames, Theme, Interpolation } from '@emotion/react';
+import {
+  jsx, css, Global, ClassNames, Theme, Interpolation,
+} from '@emotion/react';
 import {
   Button,
   Card,
@@ -12,13 +14,13 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import { CartSetter, CartItem, Product as ProductType } from '../types/types';
-import { addProduct, currency } from '../utils';
+import { addProduct, cardStyle, currency } from '../utils';
 
 const Product = ({ product, cart, setCart }: { product: ProductType; cart: CartItem[]; setCart: CartSetter }) => {
   const addToCart = () => {
     setCart(addProduct(cart, product));
   };
-  const style: Interpolation<Theme> = {
+  const style = {
     display: 'flex',
     flexDirection: 'column',
     margin: '20px',
@@ -30,9 +32,9 @@ const Product = ({ product, cart, setCart }: { product: ProductType; cart: CartI
   };
 
   return (
-    <Card css={style}>
+    <Card css={cardStyle}>
       <CardActionArea>
-        <CardMedia css={{ height: '180px' }} image={product.image} title={product.title} />
+        <CardMedia css={{ height: '180px', backgroundSize: 'contain' }} image={product.image} title={product.title} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" align="center">
             {product.title}
@@ -41,7 +43,9 @@ const Product = ({ product, cart, setCart }: { product: ProductType; cart: CartI
             {product.desc}
           </Typography>
           <Typography variant="body2" color="textSecondary" align="center" css={{ height: '30px' }}>
-            {product.price} {currency}
+            {product.price}
+            {' '}
+            {currency}
           </Typography>
         </CardContent>
       </CardActionArea>
