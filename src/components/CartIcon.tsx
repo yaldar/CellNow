@@ -7,6 +7,7 @@ import { CartItem } from '../types/types';
 import { fetchCart, countItems } from '../utils';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const CartIcon = ({ cart }: { cart: CartItem[] }) => {
   const [count, setCount] = useState(countItems(cart));
@@ -18,8 +19,8 @@ const CartIcon = ({ cart }: { cart: CartItem[] }) => {
     localStorage.clear();
   };
   return (
-    <a
-      href="/cart"
+    <Link
+      to="/cart"
       css={{
         marginLeft: 'auto',
         marginRight: '20px',
@@ -32,7 +33,7 @@ const CartIcon = ({ cart }: { cart: CartItem[] }) => {
     >
       <ShoppingCartIcon />
       {count > 0 && <p css={{ marginTop: '0', marginBottom: '0' }}>({count})</p>}
-    </a>
+    </Link>
   );
 };
 

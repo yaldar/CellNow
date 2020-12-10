@@ -21,9 +21,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header cart={cart} />
       <div className="body">
         <Router>
+          <Header cart={cart} />
           <Switch>
             <Route exact path="/cart">
               <CartPage cart={cart} setCart={setCart} />

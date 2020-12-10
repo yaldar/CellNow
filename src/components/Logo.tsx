@@ -4,10 +4,11 @@ import React from 'react';
 import logo from '../assets/logo.png';
 import HomeIcon from '@material-ui/icons/Home';
 import { navIconStyle } from '../utils';
+import { Link } from 'react-router-dom';
 const Logo = () => (
-  <a href="/" css={navIconStyle}>
+  <Link to="/" css={navIconStyle}>
     <HomeIcon css={{ height: '100%' }} />
-  </a>
+  </Link>
 );
 
 export default Logo;
