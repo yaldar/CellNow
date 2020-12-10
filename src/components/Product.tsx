@@ -12,24 +12,29 @@ import {
   makeStyles,
   Typography,
 } from '@material-ui/core';
-import React from 'react';
+import { Alert } from '@material-ui/lab';
+import React, { useState } from 'react';
 import { CartSetter, CartItem, Product as ProductType } from '../types/types';
 import { addProduct, cardStyle, currency } from '../utils';
 
-const Product = ({ product, cart, setCart }: { product: ProductType; cart: CartItem[]; setCart: CartSetter }) => {
+const Product = ({
+  product, cart, setCart, setVisible: setVisible,
+}: { product: ProductType; cart: CartItem[]; setCart: CartSetter, setVisible:any }) => {
   const addToCart = () => {
     setCart(addProduct(cart, product));
+    setVisible('block');
+    setTimeout(() => setVisible('none'), 800);
   };
-  const style = {
-    display: 'flex',
-    flexDirection: 'column',
-    margin: '20px',
-    paddingBottom: '15px',
-    alignItems: 'center',
-    width: '10vw',
-    maxWidth: '600px',
-    minWidth: '300px',
-  };
+  // const style = {
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   margin: '20px',
+  //   paddingBottom: '15px',
+  //   alignItems: 'center',
+  //   width: '10vw',
+  //   maxWidth: '600px',
+  //   minWidth: '300px',
+  // };
 
   return (
     <Card css={cardStyle}>
@@ -49,7 +54,7 @@ const Product = ({ product, cart, setCart }: { product: ProductType; cart: CartI
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions css={{ display: 'flex' }}>
         <Button variant="contained" color="primary" onClick={addToCart}>
           add to cart
         </Button>

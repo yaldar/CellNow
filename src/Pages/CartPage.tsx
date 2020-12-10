@@ -4,6 +4,8 @@ import {
   jsx, css, Global, ClassNames, Interpolation, Theme,
 } from '@emotion/react';
 import { Button } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
+
 import { CartItem, CartSetter } from '../types/types';
 import {
   calcTotal, currency, getProductFromId, removeProduct, setQuantity, verticalCenterStyle,
