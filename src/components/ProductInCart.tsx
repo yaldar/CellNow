@@ -36,7 +36,6 @@ const ProductInCart = ({ e, setCart, cart }: { e: CartItem; setCart: CartSetter;
         <div css={{ marginLeft: '20px' }}>
           <h3> {e.product.title}</h3>
           <p>quantity: {e.quantity}</p>
-
           <p>
             price: {e.quantity} {currency}
           </p>
@@ -46,7 +45,9 @@ const ProductInCart = ({ e, setCart, cart }: { e: CartItem; setCart: CartSetter;
         <input type="number" min="0" id={stringId} value={newQuantity} onChange={handleChange} />
         <Button onClick={sumbit}>update quantity</Button>
       </form>
-      <Button onClick={remove}>remove</Button>
+      <Button variant="contained" color="secondary" onClick={remove}>
+        remove
+      </Button>
     </div>
   );
 };

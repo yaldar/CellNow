@@ -31,7 +31,7 @@ const CartPage = ({ cart, setCart }: { cart: CartItem[]; setCart: CartSetter }) 
               <p>
                 Your total is: {calcTotal(cart)} {currency}
               </p>
-              <Button href="/" color="secondary" variant="contained">
+              <Button href="/" variant="outlined" color="primary">
                 continue shopping
               </Button>
               <Button href="/checkout" color="primary" variant="contained">
