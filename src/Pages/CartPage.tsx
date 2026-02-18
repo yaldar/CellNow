@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import {
   jsx, css, Global, ClassNames, Interpolation, Theme,
 } from '@emotion/react';
-import { Button } from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
+import { Button, Alert } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 
 import { CartItem, CartSetter } from '../types/types';
 import {
@@ -23,14 +23,14 @@ const CartPage = ({ cart, setCart }: { cart: CartItem[]; setCart: CartSetter }) 
         {cart.length === 0 ? (
           <div css={verticalCenterStyle}>
             <p> You have no items in your cart</p>
-            <Button href="/" color="secondary" variant="contained">
+            <Button component={RouterLink} to="/" color="secondary" variant="contained">
               continue shopping
             </Button>
           </div>
         ) : (
           <div>
             {cart.map((cartItem) => (
-              <ProductInCart cart={cart} e={cartItem} setCart={setCart} />
+              <ProductInCart key={cartItem.product.id} cart={cart} e={cartItem} setCart={setCart} />
             ))}
             <hr />
             <div
@@ -45,10 +45,10 @@ const CartPage = ({ cart, setCart }: { cart: CartItem[]; setCart: CartSetter }) 
                 {' '}
                 {currency}
               </p>
-              <Button href="/" variant="outlined" color="primary" css={buttonStyle}>
+              <Button component={RouterLink} to="/" variant="outlined" color="primary" css={buttonStyle}>
                 continue shopping
               </Button>
-              <Button href="/checkout" color="primary" variant="contained" css={buttonStyle}>
+              <Button component={RouterLink} to="/checkout" color="primary" variant="contained" css={buttonStyle}>
                 checkout
               </Button>
             </div>

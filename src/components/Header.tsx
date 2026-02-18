@@ -2,7 +2,7 @@
 import {
   jsx, css, Global, ClassNames,
 } from '@emotion/react';
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
 import React, { useEffect, useRef, useState } from 'react';
 import { CartItem } from '../types/types';
 import CartIcon from './CartIcon';

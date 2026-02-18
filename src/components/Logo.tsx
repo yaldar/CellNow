@@ -3,7 +3,7 @@ import {
   jsx, css, Global, ClassNames,
 } from '@emotion/react';
 import React from 'react';
-import HomeIcon from '@material-ui/icons/Home';
+import HomeIcon from '@mui/icons-material/Home';
 import { Link } from 'react-router-dom';
 import { navIconStyle } from '../utils';
 

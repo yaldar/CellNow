@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import {
-  jsx, css, Global, ClassNames,
+  jsx, css, Global,
 } from '@emotion/react';
 import React, { useEffect, useState } from 'react';
 import {
-  BrowserRouter as Router, Switch, Route, Link,
+  BrowserRouter as Router, Routes, Route,
 } from 'react-router-dom';
 import Header from './components/Header';
 import CartPage from './Pages/CartPage';
@@ -27,17 +27,18 @@ const App = () => {
       <div className="body">
         <Router>
           <Header cart={cart} />
-          <Switch>
-            <Route exact path="/cart">
-              <CartPage cart={cart} setCart={setCart} />
-            </Route>
-            <Route exact path="/">
-              <HomePage>
-                <ProductList products={mockProducts} cart={cart} setCart={setCart} />
-              </HomePage>
-            </Route>
-            <Route component={NotFound} />
-          </Switch>
+          <Routes>
+            <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />} />
+            <Route
+              path="/"
+              element={(
+                <HomePage>
+                  <ProductList products={mockProducts} cart={cart} setCart={setCart} />
+                </HomePage>
+              )}
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </Router>
       </div>
       <Global styles={cssReset} />

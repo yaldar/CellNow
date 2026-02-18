@@ -10,10 +10,8 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Input,
   Typography,
-} from '@material-ui/core';
-import { Label, VerifiedUser } from '@material-ui/icons';
+} from '@mui/material';
 import { CartItem, CartSetter, Product } from '../types/types';
 import {
   calcTotal, cardStyle, currency, removeProduct, setQuantity, verticalCenterStyle,

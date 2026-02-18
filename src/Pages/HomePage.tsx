@@ -2,13 +2,10 @@
 import {
   jsx, css, Global, ClassNames,
 } from '@emotion/react';
-// eslint-disable-next-line import/no-unresolved
-import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
-
 import React from 'react';
 import Banner from '../components/Banner';
 
-const HomePage = ({ children }: { children: EmotionJSX.Element }) => (
+const HomePage = ({ children }: { children: React.ReactNode }) => (
   <div className="cart-page" css={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
     <Banner />
     {children}
